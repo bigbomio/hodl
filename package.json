@@ -1,0 +1,32 @@
+{
+  "name": "bbo-Holding-contract",
+  "version": "1.0.0",
+  "description": "BBO Holding contract",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test --compile-all",
+    "testrpc": "testrpc-sc --gasLimit 0xfffffffffff --gasPrice 0x01 --network-id 777 -p 8545",
+    "coverage": "./node_modules/.bin/solidity-coverage"
+  },
+  "author": "Tran Tho",
+  "license": "MIT",
+  "dependencies": {
+    "bignumber.js": "^7.2.1",
+    "ethereumjs-abi": "^0.6.5",
+    "ganache-cli": "^6.1.6",
+    "ipfs-api": "^22.2.1",
+    "solc": "^0.4.24",
+    "truffle": "^4.1.13",
+    "truffle-hdwallet-provider": "0.0.6",
+    "truffle-hdwallet-provider-privkey": "^0.2.0",
+    "web3": "^1.0.0-beta.34"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "sol-merger": "^0.1.2",
+    "solidity-coverage": "^0.5.5"
+  }
+}
