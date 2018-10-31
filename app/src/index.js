@@ -13,11 +13,9 @@ import drizzleOptions from './drizzleOptions'
 
 ReactDOM.render((
     <DrizzleProvider options={drizzleOptions} store={store}>
-      <LoadingContainer>
         <Router history={history} store={store}>
         <App />
-        </Router>
-      </LoadingContainer>
+        </Router>     
     </DrizzleProvider>
   ),
   document.getElementById('root')
