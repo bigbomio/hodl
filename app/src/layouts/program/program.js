@@ -1,13 +1,14 @@
 
 
 import React, { Component } from 'react'
-import { AccountData, ContractData, ContractForm } from 'drizzle-react-components'
+import { AccountData, ContractData, ContractForm, LoadingContainer } from 'drizzle-react-components'
 import logo from '../../logo.png'
 import '../../App.css'
 
 class Program extends Component {
   render() {
     return (
+      <LoadingContainer>
       <main className="container">
         <div className="pure-g">
           <div className="pure-u-1-1 header">
@@ -37,6 +38,7 @@ class Program extends Component {
 
         </div>
       </main>
+      </LoadingContainer>
     )
   }
 }
