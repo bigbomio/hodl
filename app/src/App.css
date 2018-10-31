@@ -118,6 +118,10 @@ pre {
   display: inline-block;
 }
 
+.input-bbo {
+  width: 380px;
+}
+
 /* ALERTS */
 
 .alert {
