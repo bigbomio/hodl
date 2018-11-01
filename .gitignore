@@ -59,3 +59,23 @@ typings/
 
 # next.js build output
 .next
+.DS_Store
+build/contracts/BasicToken.json
+build/contracts/BBOHoldingContract.json
+build/contracts/BBOTest.json
+build/contracts/ComplexStorage.json
+build/contracts/ERC20.json
+build/contracts/ERC20Basic.json
+build/contracts/Math.json
+build/contracts/Migrations.json
+build/contracts/SafeMath.json
+build/contracts/SimpleStorage.json
+build/contracts/StandardToken.json
+build/contracts/TutorialToken.json
+build_webpack/asset-manifest.json
+build_webpack/index.html
+build_webpack/service-worker.js
+build_webpack/static/js/main.ed334926.js
+build_webpack/static/js/main.ed334926.js.map
+build_webpack/static/js/main.f57465b6.js
+build_webpack/static/js/main.f57465b6.js.map
