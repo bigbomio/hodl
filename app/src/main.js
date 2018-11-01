@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import ProgramContainer from './layouts/program/programContainer'
-import Dashboard from     './layouts/dashboard/Dashboard'
-import Me from            './layouts/me/me'
+import Join from            './layouts/join/join'
 import Introduce from     './layouts/introduce/introduce'
 
 
 export default () => (
     <Switch>
     <Route exact path="/" component={Introduce} />  
+    <Route exact path="/join" component={Join} />
+    <Route exact path="/metamask" component={ProgramContainer} />
     <Route exact path="/program" component={ProgramContainer} />
-    <Route exact path="/git" component={Dashboard} />
     <Route path='/pages/:page' component={Introduce}/>
-    <Route exact path="/me" component={Me} />
-  </Switch>
+    </Switch>
 )
