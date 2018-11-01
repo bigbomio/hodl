@@ -11,6 +11,7 @@ export default () => (
     <Route exact path="/" component={Introduce} />  
     <Route exact path="/program" component={ProgramContainer} />
     <Route exact path="/git" component={Dashboard} />
+    <Route path='/pages/:page' component={Introduce}/>
     <Route exact path="/me" component={Me} />
   </Switch>
 )
