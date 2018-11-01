@@ -10,7 +10,7 @@
     "truffle": "^4.1.13",
     "truffle-hdwallet-provider": "^0.0.5"
   },
-  "homepage": "https://bigbom.github.io/hodl",
+  "homepage": "https://bigbomio.github.io/hodl",
   "dependencies": {
     "@material-ui/core": "^3.3.2",
     "@material-ui/icons": "^3.0.1",
@@ -80,7 +80,7 @@
     "chain": "ganache-cli",
     "prepare": "npm run build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build_webpack"
   },
   "jest": {
     "collectCoverageFrom": [
