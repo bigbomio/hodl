@@ -10,5 +10,7 @@ export default () => (
     <Route exact path="/" component={Introduce} />  
     <Route exact path="/join" component={Join} />
     <Route exact path="/metamask" component={ProgramContainer} />
-  </Switch>
+    <Route exact path="/program" component={ProgramContainer} />
+    <Route path='/pages/:page' component={Introduce}/>
+    </Switch>
 )
