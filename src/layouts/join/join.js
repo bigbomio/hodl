@@ -1,71 +1,9 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
 ;import PropTypes from 'prop-types'
 import '../../App.css'
 import { Link } from 'react-router-dom'
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import BBButton from '../component/BBButton';
 
-
-const styles = theme => ({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    margin: {
-      margin: theme.spacing.unit,
-    },
-    cssRoot: {
-      color: 'white',
-      backgroundColor: purple[500],
-      '&:hover': {
-        backgroundColor: purple[700],
-      },
-    },
-    bootstrapRoot: {
-      boxShadow: 'none',
-      textTransform: 'none',
-      fontSize: 16,
-      padding: '6px 12px',
-      border: '1px solid',
-      backgroundColor: '#007bff',
-      borderColor: '#007bff',
-      fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
-      '&:hover': {
-        backgroundColor: '#0069d9',
-        borderColor: '#0062cc',
-      },
-      '&:active': {
-        boxShadow: 'none',
-        backgroundColor: '#0062cc',
-        borderColor: '#005cbf',
-      },
-      '&:focus': {
-        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-      },
-    },
-  });
-  
-  const theme = createMuiTheme({
-    palette: {
-      primary: green,
-    },
-    typography: {
-      useNextVariants: true,
-    },
-  });
 
 class Join extends Component {
 
@@ -107,17 +45,12 @@ class Join extends Component {
             </div>
 
             <div className = 'list-btn'>
-            <MuiThemeProvider theme={theme} className = "btn-switch" >
-                <Button   variant="contained" color="primary" className={this.classes.margin} component={Link} to="/metamask">
-                Using By Metamask
-                </Button>
-            </MuiThemeProvider>
+        
+            <Link to="/metamask">
+            <BBButton content="Using By Metamask" className = 'button-text' variant="green" />
+            </Link>
 
-            <MuiThemeProvider theme={theme} className = "btn-switch" >
-                <Button  variant="contained" color="primary" className={this.classes.margin} onClick={ ()=> {let newWindow = window && window.open(this.linkPostMyEtherWallet);}}>
-                Using By MyEtherWallet
-                </Button>
-            </MuiThemeProvider>
+            <BBButton content="Using By MyEtherWallet" variant="green" className = 'button-text'  onClick={ ()=> {let newWindow = window && window.open(this.linkPostMyEtherWallet);}}/>
         
     
         </div>

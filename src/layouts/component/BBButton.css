@@ -1,0 +1,33 @@
+
+button {
+ display: inline-block; 
+ margin: 30px;
+ font-size: 22px;
+ height: 50px;
+ width: 250px;
+ border-radius: 10px;
+ border: none;
+ box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
+ background: green;
+  cursor: pointer;
+}
+
+.button-text{
+  font-family: 'Helvetica';
+  font-weight: 600;
+  color : white;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.red {
+  background: red;
+}
+
+.green {
+  background: green;
+}
+
+.yellow {
+  background: yellow;
+}
