@@ -19,12 +19,10 @@ class Introduce extends Component {
     }, {});
 
     var page = this.props.match.params.page;
-    console.log('page', page);
     const pageItem = importAll(require.context('./', false, /\.(md)$/));
     if(!page){
       page = 'content';
     }
-    console.log(pageItem[page])
     if(!pageItem[page])
       page = 'content';
     return (<main className="container markdown-body">
