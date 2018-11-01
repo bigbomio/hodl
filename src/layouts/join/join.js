@@ -62,9 +62,8 @@ class Join extends Component {
     }
 
     covertDayTime () {
-
         var timeStamp = this.depositStopTime - Math.round(new Date().getTime()/1000);
-        var days = Math.round(timeStamp / (3600 * 24));
+        var days = Math.floor(timeStamp / (3600 * 24));
         var hours =Math.floor((timeStamp - days * 3600 * 24)/ 3600);
         var minutes = Math.floor((timeStamp - days * 3600 * 24 - hours * 3600) / 60);
         var seconds = timeStamp - days * 3600 * 24 - hours * 3600 - minutes *  60;
