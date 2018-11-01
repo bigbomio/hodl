@@ -121,6 +121,13 @@ pre {
 .input-bbo {
   width: 380px;
 }
+.btn-switch {
+  margin : 10px!;
+  width : 200px;
+}
+.list-btn {
+  margin-top : 25px;
+}
 
 /* ALERTS */
 
