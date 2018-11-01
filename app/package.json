@@ -10,6 +10,8 @@
     "truffle-hdwallet-provider": "^0.0.5"
   },
   "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "@material-ui/icons": "^3.0.1",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
@@ -40,6 +42,7 @@
     "github-markdown-css": "^2.10.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "moment": "^2.22.2",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -47,6 +50,7 @@
     "raf": "3.4.0",
     "react": "^16.4.1",
     "react-bootstrap": "^1.0.0-beta.1",
+    "react-button-component": "^1.0.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-markdown": "^4.0.3",
