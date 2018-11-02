@@ -1,5 +1,5 @@
 
-# How To Join  Long-term HODLING BBO Program 
+# How To Join  Long-Term HODLING BBO Program 
 
 Changes are automatically rendered as you type.
 
