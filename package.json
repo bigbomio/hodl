@@ -10,7 +10,7 @@
     "truffle": "^4.1.13",
     "truffle-hdwallet-provider": "^0.0.5"
   },
-  "homepage": "https://chris-tn.github.io/hodl",
+  "homepage": "https://trantho3910.github.io/hodl/",
   "dependencies": {
     "@material-ui/core": "^3.3.2",
     "@material-ui/icons": "^3.0.1",
