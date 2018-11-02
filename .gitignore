@@ -109,3 +109,9 @@ build_webpack/service-worker.js
 build_webpack/index.html
 build_webpack/favicon.ico
 build_webpack/asset-manifest.json
+build_webpack/asset-manifest.json
+build_webpack/index.html
+build_webpack/service-worker.js
+build_webpack/static/js/main.94515847.js
+build_webpack/static/js/main.94515847.js.map
+package.json
