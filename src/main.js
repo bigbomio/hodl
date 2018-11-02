@@ -8,7 +8,7 @@ import Navigation from "./navigations";
 import { history } from './store'
 console.log(process.env.PUBLIC_URL);
 export default () => (
-	<HashRouter  history={history} basename={process.env.PUBLIC_URL || '/hodl'} >
+	<HashRouter  history={history} >
         <React.Fragment>
         <Navigation />
         <Switch>

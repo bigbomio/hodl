@@ -3,10 +3,18 @@
 import React, { Component } from 'react'
 import { AccountData, ContractData, ContractForm, LoadingContainer } from 'drizzle-react-components'
 import BBContractForm from '../component/BBContractForm'
-import logo from '../../logo.png'
+import PropTypes from 'prop-types'
 import '../../App.css'
 
 class Program extends Component {
+  constructor(props, context) {
+    super(props)
+
+    // this.contracts = context.drizzle.contracts;
+    // console.log(this.contracts.BBOHoldingContract.address);
+
+    
+}
   render() {
     return (
       <LoadingContainer>
@@ -45,6 +53,10 @@ class Program extends Component {
       </LoadingContainer>
     )
   }
+}
+
+Program.contextTypes = {
+  drizzle: PropTypes.object
 }
 
 export default Program
