@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
-;import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import '../../App.css'
 import { Link } from 'react-router-dom'
 import BBButton from '../component/BBButton';
-
+import Countdown  from './Countdown.js';
 
 class Join extends Component {
 
     constructor(props, context) {
         super(props);
         this.classes  = props;
-        this.depositStartTime = 1540377259;
-        this.depositStopTime = 1545561259;
         this.linkPostMyEtherWallet = 'https://hackernoon.com/wtf-is-the-blockchain-1da89ba19348';
 
         this.state = {
@@ -20,15 +18,6 @@ class Join extends Component {
 
     }
 
-    componentDidMount() {
-        this.timer = setInterval(this.caculateRemainTime.bind(this), 1000);
-    }
-
-    componentWillUnmount() {
-        if(this.timer) {
-            clearInterval(this.timer);
-        }
-    }
 
     render() {
         
@@ -37,20 +26,21 @@ class Join extends Component {
              <div className="pure-g">
              <div className="pure-u-1-1 header">
              <h1 className = "newstype">Midas Foundation Long-term HODLING program for BBO Hodlers</h1>
-            <h2>Program Status</h2>
-            <strong>Deposit end in :  </strong>
-            <div>
-               {this.state.remainTime}
-               
+            <h2>Program Stage: <strong class="text-green">Deposit</strong></h2>
+            
+            <div> <strong>Deposit</strong> is ending in (Dec 24th 2018) :   <span>
+                <Countdown date={`2018-12-24T00:00:00`} />
+               </span>
             </div>
 
             <div className = 'list-btn'>
         
             <Link to="/metamask">
-            <BBButton content="Using By Metamask" className = 'button-text' variant="green" />
+            <BBButton content="Connect Metamask" className = 'button-text metamask' variant="green" />
             </Link>
-
-            <BBButton content="Using By MyEtherWallet" variant="green" className = 'button-text'  onClick={ ()=> {let newWindow = window && window.open(this.linkPostMyEtherWallet);}}/>
+            <span class="or-text">OR</span>
+            <BBButton content="Using MyEtherWallet" variant="green" className = 'button-text mew'  
+                onClick={ ()=> {let newWindow = window && window.open(this.linkPostMyEtherWallet);}}/>
         
     
         </div>
@@ -61,22 +51,6 @@ class Join extends Component {
         );
     }
 
-    covertDayTime () {
-        var timeStamp = this.depositStopTime - Math.round(new Date().getTime()/1000);
-        var days = Math.floor(timeStamp / (3600 * 24));
-        var hours =Math.floor((timeStamp - days * 3600 * 24)/ 3600);
-        var minutes = Math.floor((timeStamp - days * 3600 * 24 - hours * 3600) / 60);
-        var seconds = timeStamp - days * 3600 * 24 - hours * 3600 - minutes *  60;
-        
-        return days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + ' seconds.';
-
-    }
-
-    caculateRemainTime () {
-        this.setState({
-            remainTime: this.covertDayTime(),
-        });
-    }
 };
 Join.contextTypes = {
     drizzle: PropTypes.object
