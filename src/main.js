@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { Router , Switch, Route } from 'react-router-dom'
 import ProgramContainer from './layouts/program/programContainer'
 import Join from            './layouts/join/join'
 import Introduce from     './layouts/introduce/introduce'
@@ -8,7 +8,7 @@ import Navigation from "./navigations";
 import { history } from './store'
 console.log(process.env.PUBLIC_URL);
 export default () => (
-	<HashRouter  history={history} >
+	<Router  history={history} >
         <React.Fragment>
         <Navigation />
         <Switch>
@@ -19,5 +19,5 @@ export default () => (
             <Route path='/pages/:page' component={Introduce}/>
         </Switch>
         </React.Fragment>
-    </HashRouter>
+    </Router>
 )
