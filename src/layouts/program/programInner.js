@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { AccountData, ContractData, ContractForm, LoadingContainer } from 'drizzle-react-components'
-import BBContractForm from '../component/BBContractForm'
 import PropTypes from 'prop-types'
 import '../../App.css'
 import { drizzleConnect } from 'drizzle-react'
@@ -22,10 +20,12 @@ class ProgramInner extends Component {
   
   async handleSubmit() {
     // check allowance
+
     console.log('handleSubmit ....')
     if(this.state['bboAmount']>0){
       if(this.state['submiting'])
         return;
+      this.setState({'submiting':true});
       var allowance = this.props.contracts['BBOTest']['allowance'][this.bboAllowanceKey].value;
       console.log(allowance);
       var that = this;

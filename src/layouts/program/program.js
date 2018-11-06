@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { AccountData, ContractData, ContractForm, LoadingContainer } from 'drizzle-react-components'
-import BBContractForm from '../component/BBContractForm'
+import {  LoadingContainer } from 'drizzle-react-components'
 import PropTypes from 'prop-types'
 import '../../App.css'
 import ProgramInner from './programInner'
