@@ -16,7 +16,7 @@ class ProgramInner extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.props.accounts[0]])
     this.bboAllowanceKey = this.contracts['BBOTest'].methods['allowance'].cacheCall(...[this.props.accounts[0], this.contracts.BBOHoldingContract.address])
-    this.bboHoldKey = this.contracts.BBOHoldingContract.methods['bboBalance'].cacheCall(...[])
+    this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall(...[])
     this.state = initialState;
   }
   
@@ -40,7 +40,19 @@ class ProgramInner extends Component {
             console.log(otx);
             if(otx!=0){
               clearInterval(myVar);
-              return that.contracts.BBOHoldingContract.methods['depositBBO'].cacheSend(...[]);
+              let otx2 = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address,  this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send();
+              var myVar2 = setInterval(function x() {
+                console.log(otx2);
+                if(otx2!=0){
+                  clearInterval(myVar2);
+
+                  return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                      to: that.contracts.BBOHoldingContract.address,
+                      value: 0
+                  })
+                }
+              },5000);
+
             }
           }, 5000);
           
@@ -54,7 +66,10 @@ class ProgramInner extends Component {
             if(otx2!=0){
               console.log(otx2.PromiseStatus);
               clearInterval(myVar);
-              return that.contracts.BBOHoldingContract.methods['depositBBO'].cacheSend(...[]);
+              return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                  to: that.contracts.BBOHoldingContract.address,
+                  value: 0
+              })
             }
             
           }, 5000);
@@ -77,8 +92,8 @@ class ProgramInner extends Component {
       bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
       bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance,'ether');
     }
-    if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['bboBalance']) {
-      bboHoldBalance = this.props.contracts.BBOHoldingContract['bboBalance'][this.bboHoldKey].value;
+    if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
+      bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
       bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance,'ether');
     }
     return (
