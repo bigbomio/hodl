@@ -26,7 +26,8 @@ class ProgramInner extends Component {
       if(this.state['submiting'])
         return;
       this.setState({'submiting':true});
-      var allowance = this.props.contracts['BBOTest']['allowance'][this.bboAllowanceKey].value;
+      var allowance = await this.contracts['BBOTest'].methods.allowance(this.props.accounts[0], this.contracts.BBOHoldingContract.address).call();
+      //var allowance = this.props.contracts['BBOTest']['allowance'][this.bboAllowanceKey].value;
       console.log(allowance);
       var that = this;
       if(allowance > 0){
