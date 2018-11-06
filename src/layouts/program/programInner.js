@@ -40,7 +40,7 @@ class ProgramInner extends Component {
             console.log(otx);
             if(otx!=0){
               clearInterval(myVar);
-              let otx2 = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address,  this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send();
+              let otx2 = that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send();
               var myVar2 = setInterval(function x() {
                 console.log(otx2);
                 if(otx2!=0){
