@@ -25,14 +25,14 @@ class Join extends Component {
             <main className="container">
              <div className="pure-g">
              <div className="pure-u-1-1 header">
-             <h1 className = "newstype">Midas Foundation Long-term HODLING program for BBO Hodlers</h1>
+             <h1 className = "newstype">Midas Foundation Long-term HODLING program <br/> for BBO Hodlers</h1>
             <h2>Program Stage: <strong class="text-green">Deposit</strong></h2>
             
             <div> <strong>Deposit</strong> is ending in (Dec 24th 2018) :   <span>
                 <Countdown date={`2018-12-24T00:00:00`} />
                </span>
             </div>
-
+            <h3 class="newstype">JOIN WITH</h3>
             <div className = 'list-btn'>
         
             <Link to="/metamask">

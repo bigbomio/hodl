@@ -9,18 +9,20 @@ body,
   text-align: center;
 }
 h1.newstype {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  color: #1c60ff;
+  font-family:"Open Sans", sans-serif;
+  color: green;
 }
 h2.newstype {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  color: #1c60ff;
+  font-family:"Open Sans", sans-serif;
+  color: green;
 }
 h3.newstype {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
-  color: #1c60ff;
+  font-family:"Open Sans", sans-serif;
+  color: green;
 }
-
+.color-green{
+  color: green;
+}
 .footer {
   position: fixed;
   left: 0;
@@ -200,4 +202,27 @@ pre {
 
 .Countdown-col-element strong{
   font-size: 50px;
+}
+.input-bbo{
+   display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    max-width: 600px;
+}
+.deposit-button{
+      background-color: #4dae4a;
+      color: #fff;
+}
+.container-fix-600{
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
 }
