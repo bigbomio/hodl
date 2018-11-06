@@ -13,7 +13,7 @@ class ProgramInner extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.props.accounts[0]])
-    this.bboAllowanceKey = this.contracts['BBOTest'].methods['allowance'].cacheCall(...[this.props.accounts[0], this.contracts.BBOHoldingContract.address])
+//    this.bboAllowanceKey = this.contracts['BBOTest'].methods['allowance'].cacheCall(...[this.props.accounts[0], this.contracts.BBOHoldingContract.address])
     this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall(...[])
     this.state = initialState;
   }
