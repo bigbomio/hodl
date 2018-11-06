@@ -45,7 +45,7 @@ class ProgramInner extends Component {
                 console.log(otx2);
                 if(otx2!=0){
                   clearInterval(myVar2);
-
+                  this.setState({'submiting':false});
                   return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                       to: that.contracts.BBOHoldingContract.address,
                       value: 0
@@ -66,6 +66,7 @@ class ProgramInner extends Component {
             if(otx2!=0){
               console.log(otx2.PromiseStatus);
               clearInterval(myVar);
+              this.setState({'submiting':false});
               return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                   to: that.contracts.BBOHoldingContract.address,
                   value: 0
