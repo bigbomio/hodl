@@ -37,44 +37,30 @@ class ProgramInner extends Component {
           // todo set allowance to 0
           
           let otx = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, 0).send();
-          var myVar = setInterval(function x() {
-            console.log(otx);
-            if(otx!=0){
-              clearInterval(myVar);
-              let otx2 = that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send();
-              var myVar2 = setInterval(function x() {
-                console.log(otx2);
-                if(otx2!=0){
-                  clearInterval(myVar2);
-                  that.setState({'submiting':false});
+          setTimeout(function(){
+            that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send();
+            setTimeout(function(){
+                that.setState({'submiting':false});
                   return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                       to: that.contracts.BBOHoldingContract.address,
                       value: 0
                   })
-                }
-              },5000);
-
-            }
+            }, 5000);
           }, 5000);
-          
         }
         console.log('here 1');
       }else{
         // do approve
         
           let otx2 = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send()
-          var myVar = setInterval(function x() {
-            if(otx2!=0){
-              console.log(otx2.PromiseStatus);
-              clearInterval(myVar);
-              that.setState({'submiting':false});
+          setTimeout(function(){
+            that.setState({'submiting':false});
               return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                   to: that.contracts.BBOHoldingContract.address,
                   value: 0
               })
-            }
-            
-          }, 5000);
+            }, 5000);
+          
       }
     }else{
       alert('BBO Amount must be greater 0');
