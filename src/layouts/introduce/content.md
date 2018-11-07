@@ -115,7 +115,7 @@ This step is optional. In case you want to make sure that you had authorized the
 ### STEP 3 - Execute the deposit
 1. Open your [Myetherwallet](https://www.myetherwallet.com/) and select the **Send Ether & Token** tab.
 
-2. Copy the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224` into the **Address**. Then set the **Amount** to **"0"**. Make sure that you also set the gas limit at least **100,000**. You must have some Ether in your wallet to pay for the transaction fees (small amount).
+2. Copy the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224` into the **Address**. Then set the **Amount** to **"0"**. Make sure that you also set the gas limit at least **150,000**. You must have some Ether in your wallet to pay for the transaction fees (small amount).
 
 ![Sending Ether](images/mew/14.png)
 
@@ -130,7 +130,7 @@ Click **Generate Transaction** to initiate the transfer. Then click to **Yes, I 
 
 In order to withdraw all of your invested tokens after the holding period (12 months), you simply need to make a transaction with 0 Ether into the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`
 
-> Note: Please use at least 100,000 gas limit for the transaction, in order to ensure the transaction will be processed. Also you must have some Ether in your wallet for paying the transaction fee.
+> Note: Please use at least 150,000 gas limit for the transaction, in order to ensure the transaction will be processed. Also you must have some Ether in your wallet for paying the transaction fee.
 
 ![Withdraw](images/mew/14.png)
 
