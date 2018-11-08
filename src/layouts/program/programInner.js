@@ -8,16 +8,20 @@ class ProgramInner extends Component {
   constructor(props, context) {
     super(props)
     this.contracts = context.drizzle.contracts
-    console.log(this.contracts);
     var initialState = {bboAmount:0, submiting:false};
+    this.account = this.props.accounts[0];
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.props.accounts[0]])
-//    this.bboAllowanceKey = this.contracts['BBOTest'].methods['allowance'].cacheCall(...[this.props.accounts[0], this.contracts.BBOHoldingContract.address])
-    this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall(...[])
+    this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.account])
+    this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall({from:this.account})
     this.state = initialState;
+    if(!this.account)
+      this.enableEthereum(context.drizzle.web3);
+    
   }
-  
+  async enableEthereum(web3) {
+    web3.currentProvider.enable();
+  }
   async handleSubmit() {
     // check allowance
 
@@ -74,16 +78,25 @@ class ProgramInner extends Component {
   }
 
   render() {
+    
     var bboBalance = 0;
     var bboHoldBalance = 0;
-    if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
-      bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
-      bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance,'ether');
+    if(this.account != this.props.accounts[0]){
+      this.account = this.props.accounts[0]
+      this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.account])
+      this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall({from:this.account})
+    }else{
+      if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
+        bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
+        bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance,'ether');
+      }
+      if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
+        bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
+        bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance,'ether');
+      }
     }
-    if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
-      bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
-      bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance,'ether');
-    }
+    
+    
     return (
       <main className="container">
         <div className="">

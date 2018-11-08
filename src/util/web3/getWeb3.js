@@ -14,6 +14,7 @@ let getWeb3 = new Promise(function(resolve, reject) {
   window.addEventListener('load', async function(dispatch) {
     var results
     var web3
+    console.log('go here ...');
      if (window.ethereum) {
         web3 = new Web3(ethereum);
         try {
