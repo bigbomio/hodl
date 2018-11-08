@@ -43,8 +43,111 @@ We also will provide the ability to check the current return via smart contract 
 
 ### USING MYETHERWALLET
 
+### STEP 1 - Authorizing BBO transfer
+The instructions below are for using MyEtherWallet, but you may also use the Ethereum official wallet to authorize the BBO token transfer.
+
+> CAUTION! Follow the instructions carefully and DO NOT send your BBO tokens directly to smart contract or without the authorization.
+
+1. Open your [Myetherwallet](https://www.myetherwallet.com/) and select the **Contract** tab.
+
+![MEW Contract tab](images/mew/1.png)
+
+
+2. Put the **bigbomeco.eth** in the **Contract Address** field. 
+
+![BBO Contract Address](images/mew/3.png)
+
+
+3. Open a new browser tab and open this URL [BBO Smart Contract ABI](http://api.etherscan.io/api?module=contract&action=getabi&address=0x84f7c44b6fed1080f647e354d552595be2cc602f&format=raw). Copy and paste the code from this page into the **ABI / JSON Interface** field and then click **Access**.  
+
+![Copy ABI](images/mew/2.png)
+
+
+4. Under **Read / Write Contract**, click the **Select a function** drop-down and select **Approve**.  
+
+![Select function](images/mew/4.png)
+
+
+5. Copy the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224` in the **_spender** field.
+
+![Set allowance spender](images/mew/5.png)
+
+
+6. Enter the amount of BBO tokens that you wish to deposit into the **_value** field.
+> IMPORTANT ! You **MUST** add the suffix `e18` after the amount of BBO tokens to make it works properly
+
+**EXAMPLE**
+If you want to deposit 50,000 BBO into the long-term incentive program, you must enter the number **50000e18** into the **_value** field
+
+![Enter the value](images/mew/5.png)
+
+7. Access your wallet and then click **Write**.
+
+![Write tx](images/mew/6.png)
+
+8. Set the Amount to Send at "0" and the **Gas Limit** at the default value, then click **Generate Transaction**.
+
+![Generate tx](images/mew/7.png)
+
+9. Click **Yes, I am sure! Make Transaction** to authorize the BBO transfer.  
+
+![Confirm tx](images/mew/8.png)
+
+10. You can confirm the transaction status by checking it on Etherscan.io website, Make sure that the transaction is success.
+
+![Tx success](images/mew/9.png)
+
+![Tx Detail](images/mew/10.png)
+
+### STEP 2 (OPTIONAL) - Confirm the authorization
+This step is optional. In case you want to make sure that you had authorized the correct number, you can use this step for validate your previous authorization.
+
+1. Visit the [BBO Smart contract page](https://etherscan.io/token/0x84f7c44b6fed1080f647e354d552595be2cc602f#readContract).
+
+![BBO Smart contract page](images/mew/11.png)
+
+2. Sroll down to the **28. allowance**, then put your Ethereum address into the **_owner** field. Next, put the long-term incentive contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224` into the **_spender** field. Then click **Query**.
+
+  Verify that the number is match with your authorized tokens in previous step.
+
+![Verify allowance](images/mew/13.png)
+
+### STEP 3 - Execute the deposit
+1. Open your [Myetherwallet](https://www.myetherwallet.com/) and select the **Send Ether & Token** tab.
+
+2. Copy the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224` into the **Address**. Then set the **Amount** to **"0"**. Make sure that you also set the gas limit at least **150,000**. You must have some Ether in your wallet to pay for the transaction fees (small amount).
+
+![Sending Ether](images/mew/14.png)
+
+Click **Generate Transaction** to initiate the transfer. Then click to **Yes, I am sure! Make Transaction** to finalize the transfer.
+
+3. **CONGRATULATIONS!!!** You BBO deposit is now being made into the long-term incentive program. Please also make sure your transaction is success on Etherscan.io 
+
+
 ## INSTRUCTIONS TO WITHDRAW BBO (AFTER HOLDING PERIOD)
 
-### USING METAMASK
+### FULL WITHDRAWAL - MYETHERWALLET
 
-### USING MYETHERWALLET
+In order to withdraw all of your invested tokens after the holding period (12 months), you simply need to make a transaction with 0 Ether into the contract address `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`
+
+> Note: Please use at least 150,000 gas limit for the transaction, in order to ensure the transaction will be processed. Also you must have some Ether in your wallet for paying the transaction fee.
+
+![Withdraw](images/mew/14.png)
+
+### PARTIAL WITHDRAWAL - MYETHERWALLET
+
+In order to withdraw a part of your deposited tokens, you need to send a certain Ether into the smart contract. **YOU WONT LOOSE ANY ETHER!!**. The smart contract will return your tokens based on the following formula where X represents the calculated amount of Ether.
+
+We use the conversion rate at 1 ETH = 10,000,000 BBO. In order to calculate the exact amount of Ether you need to send for withdrawing XXX amount of tokens, please use the for
+
+                          Ether need to send = Partial Amount of deposited tokens / 10,000,000
+
+Let's take an example: You deposited 500,000 BBO into the long-term incentive program. After 12 months, you decide to withdraw 100,000 BBO only. The amount of Ether you need to send would be:  
+
+                                          100,000/500,000 = 0.2 ETH
+                                          
+You will receive back 0.2 ETH + 100,000 BBO + any additional tokens earn through interest
+
+
+
+
