@@ -15,13 +15,10 @@ class ProgramInner extends Component {
     this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.account])
     this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall({from:this.account})
     this.state = initialState;
-    if(!this.account)
-      this.enableEthereum(context.drizzle.web3);
+    
     
   }
-  async enableEthereum(web3) {
-    web3.currentProvider.enable();
-  }
+
   async handleSubmit() {
     // check allowance
 
@@ -78,7 +75,6 @@ class ProgramInner extends Component {
   }
 
   render() {
-    
     var bboBalance = 0;
     var bboHoldBalance = 0;
     if(this.account != this.props.accounts[0]){
@@ -115,7 +111,7 @@ class ProgramInner extends Component {
           
              <h3 className = "newstype">Deposit BBO</h3>
             <p>
-            <input className="input-bbo" key="bboAmount" type="number" name="bboAmount" placeholder="50,000" onChange={this.handleInputChange} />
+            <input className="input-bbo" key="bboAmount" type="number" name="bboAmount" onChange={this.handleInputChange} />
             </p>
             <p><button key="submit" className="deposit-button" type="button" onClick={this.handleSubmit}>Deposit</button>
             </p>

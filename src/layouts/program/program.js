@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {  LoadingContainer } from 'drizzle-react-components'
+import ProgramLoading from './programLoading'
 import PropTypes from 'prop-types'
 import '../../App.css'
 import ProgramInner from './programInner'
@@ -12,9 +12,9 @@ class Program extends Component {
   render() {
     
     return (
-      <LoadingContainer>
+      <ProgramLoading>
          <ProgramInner />
-      </LoadingContainer>
+      </ProgramLoading>
     )
   }
 }
