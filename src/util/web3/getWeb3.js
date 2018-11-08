@@ -11,12 +11,26 @@ function web3Initialized(results) {
 
 let getWeb3 = new Promise(function(resolve, reject) {
   // Wait for loading completion to avoid race conditions with web3 injection timing.
-  window.addEventListener('load', function(dispatch) {
+  window.addEventListener('load', async function(dispatch) {
     var results
     var web3
+     if (window.ethereum) {
+        web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+          await ethereum.enable();
+           
+        } catch (error) {
+            // User denied account access...
+            alert('User denied account access...');
+            windows.location.reload();
+        }
 
-    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-    if (typeof web3 !== 'undefined') {
+        results = {
+          web3Instance: web3
+        }
+
+    } else if (typeof web3 !== 'undefined') {
       // Use Mist/MetaMask's provider.
       web3 = new Web3(web3.currentProvider)
 
