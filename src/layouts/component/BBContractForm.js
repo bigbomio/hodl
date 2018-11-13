@@ -41,21 +41,25 @@ class BBContractForm extends Component {
     const inputElement = document.querySelector('input[name="_spender"]');
     this.setState({ [inputElement.name]: inputElement.value });
     console.log({ [inputElement.name]: inputElement.value });
+   
   };
 
   handleSubmit() {
     console.log('handleSubmit');
 
     if (this.props.sendArgs) {
+      console.log(this.props.sendArgs);
       return this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state), this.props.sendArgs);
     }
-
-    this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(this.state));
+    let data = this.state;
+    data._value  = data._value * 1000000000000000000;
+    console.log(data);
+    this.contracts[this.props.contract].methods[this.props.method].cacheSend(...Object.values(data));
   }
 
-  handleInputChange(event) {
+  handleInputChange(event) {  
+    this.setState({ [event.target.name]: event.target.value });  
     console.log('handleInputChange', { [event.target.name]: event.target.value });
-    this.setState({ [event.target.name]: event.target.value });
   }
 
   translateType(type) {

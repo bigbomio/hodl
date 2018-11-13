@@ -85,9 +85,15 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.24;\n\n\n/**\n * @title ERC20Basic\n * @dev Simpler version of ERC20 interface\n * See https://github.com/ethereum/EIPs/issues/179\n */\ncontract ERC20Basic {\n  function totalSupply() public view returns (uint256);\n  function balanceOf(address who) public view returns (uint256);\n  function transfer(address to, uint256 value) public returns (bool);\n  event Transfer(address indexed from, address indexed to, uint256 value);\n}\n",
+<<<<<<< HEAD
   "sourcePath": "/Users/trantho/Code/SmartContract/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
   "ast": {
     "absolutePath": "/Users/trantho/Code/SmartContract/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
+=======
+  "sourcePath": "/Users/trantho/Code/SmartContract/webapp/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
+  "ast": {
+    "absolutePath": "/Users/trantho/Code/SmartContract/webapp/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
+>>>>>>> 818c40d7b2448e290124f2112064b8b629cfed96
     "exportedSymbols": {
       "ERC20Basic": [
         997
@@ -472,7 +478,11 @@
     "src": "0:440:6"
   },
   "legacyAST": {
+<<<<<<< HEAD
     "absolutePath": "/Users/trantho/Code/SmartContract/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
+=======
+    "absolutePath": "/Users/trantho/Code/SmartContract/webapp/hodl/contracts/zeppelin/token/ERC20/ERC20Basic.sol",
+>>>>>>> 818c40d7b2448e290124f2112064b8b629cfed96
     "exportedSymbols": {
       "ERC20Basic": [
         997
@@ -862,5 +872,9 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
+<<<<<<< HEAD
   "updatedAt": "2018-11-02T02:51:34.987Z"
+=======
+  "updatedAt": "2018-11-02T03:28:34.738Z"
+>>>>>>> 818c40d7b2448e290124f2112064b8b629cfed96
 }
