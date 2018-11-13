@@ -1,16 +1,23 @@
-ul.menu {
+div.menu {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #4dae4a;
+    background-color: #000;
+    text-align: center;
+}
+ul.menu-sub {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
     text-align: center;
 }
 
-ul.menu li {
+ul.menu-sub li {
     display : inline-block
 }
 
-ul.menu li a {
+ul.menu-sub li a {
     display: block;
     color: white;
     text-align: center;
@@ -18,8 +25,8 @@ ul.menu li a {
     text-decoration: none;
 }
 
-ul.menu li a:hover {
-    background-color: green;
+ul.menu-sub li a:hover {
+    color: green;
 }
 
 .footer {
@@ -31,3 +38,27 @@ ul.menu li a:hover {
     color: white;
     text-align: center;
  }
+ img.img-logo {
+    left: 15px;
+    width: 120px;
+    top: 5px;
+    position: absolute;
+}
+.no-padding{
+    padding: 0!important;
+}
+.container.no-padding{
+    position: relative;
+}
+img.img-tele {
+    width: 30px;
+    position: absolute;
+    top: 10px;
+}
+ul.menu-sub li a.telegram {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+}

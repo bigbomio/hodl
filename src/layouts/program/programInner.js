@@ -28,41 +28,50 @@ class ProgramInner extends Component {
         return;
       this.setState({'submiting':true});
       var allowance = await this.contracts['BBOTest'].methods.allowance(this.props.accounts[0], this.contracts.BBOHoldingContract.address).call();
-      //var allowance = this.props.contracts['BBOTest']['allowance'][this.bboAllowanceKey].value;
       console.log(allowance);
       var that = this;
       if(allowance > 0){
         if(this.context.drizzle.web3.utils.fromWei(allowance, 'ether') == this.state['bboAmount']){
-         return this.contracts.BBOHoldingContract.methods['depositBBO'].cacheSend(...[]);
+         return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                      to: that.contracts.BBOHoldingContract.address,
+                      value: 0,
+                      gas: 150000
+                  });
+        
         }else{
           // todo set allowance to 0
           
-          let otx = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, 0).send();
+          this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, 0).send({from:that.account});
           setTimeout(function(){
-            that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send();
-            setTimeout(function(){
-                that.setState({'submiting':false});
-                  return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
-                      to: that.contracts.BBOHoldingContract.address,
-                      value: 0
-                  })
-            }, 5000);
+              that.setState({'submiting':false});
+                return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                    to: that.contracts.BBOHoldingContract.address,
+                    value: 0,
+                    gas: 150000
+                })
           }, 5000);
+          setTimeout(function(){
+            that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send({from:that.account});
+          }, 10000);
         }
         console.log('here 1');
       }else{
         // do approve
         
-          let otx2 = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send()
+          this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send({from:that.account})
           setTimeout(function(){
             that.setState({'submiting':false});
               return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                   to: that.contracts.BBOHoldingContract.address,
-                  value: 0
+                  value: 0,
+                  gas: 150000
               })
             }, 5000);
           
       }
+     setTimeout(function(){
+        that.setState({'submiting':false});
+       }, 5000)
     }else{
       alert('BBO Amount must be greater 0');
     }
