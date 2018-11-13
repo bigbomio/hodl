@@ -28,8 +28,8 @@ class Join extends Component {
              <h1 className = "newstype">Midas Foundation Long-term HODLING program <br/> for BBO Hodlers</h1>
             <h2>Program Stage: <strong className="text-green">Deposit</strong></h2>
             
-            <div> <strong>Deposit</strong> is ending in (Nov 29th 2018) :   <span>
-                <Countdown date={`2018-11-29T00:00:00`} />
+            <div> <strong>Deposit</strong> is ending in (Jan 28th 2019, 10:00:00am UTC Time) :   <span>
+                <Countdown date={`2019-01-28T10:00:00`} />
                </span>
             </div>
             <h3 className="newstype">JOIN WITH</h3>
