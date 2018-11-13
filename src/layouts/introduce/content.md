@@ -47,7 +47,7 @@ Using your browser , copy and paste this URL into your browser https://bigbomio.
 
 ![dApp home page](images/metamask/01.png)
 
-Please make sure that your browser has Metamask installed (https://metamask.io), and is conecting to **"Main Ethereum Network"** . It won't work if you connect to any other network than Mainnet. If you alredy logged out, you need to login into Metamask account also.  
+Please make sure that your browser has Metamask installed (https://metamask.io), and is conecting to **"Main Ethereum Network"** . It won't work if you connect to any other network than Mainnet. If you already logged out, you need to login into Metamask account also.  
 
 ![Metamask Login](images/metamask/03.png)
 
@@ -61,7 +61,7 @@ If you're using Metamask version from 5.0.2, and you already enabled "Privacy Mo
 
 ### STEP 2 - Making the deposit
 
-If you successful connect to Metamask, you will see the screen with your connected wallet, your current BBO balance, and your deposited tokens into long-term program. For the first time participation, the value of **Current BBO in Holding contract** will always be **0)).  
+If you successful connect to Metamask, you will see the screen with your connected wallet, your current BBO balance, and your deposited tokens into long-term program. For the first time participation, the value of **Current BBO in Holding contract** will always be **0**.  
 
 ![After-connected screen](images/metamask/04.png)
 
@@ -75,7 +75,7 @@ You will be asked to make 2 transactions, one transaction for BBO Authorization 
 
 ![Deposit](images/metamask/06.png)
 
-After these transaction has been confirmed by Ethereum network, and successful, please reload the dApp at https://bigbomio.github.io/hodl/#/join. Now you will see your deposited tokens has been recorded into long-term incentive program. **CONGRATS!!!***
+After these transaction has been confirmed by Ethereum network, and successful, please reload the dApp at https://bigbomio.github.io/hodl/#/join. Now you will see your deposited tokens has been recorded into long-term incentive program. **CONGRATS!!!**
 
 ![Deposit status](images/metamask/07.png)
 
