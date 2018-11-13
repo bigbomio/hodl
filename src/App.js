@@ -10,7 +10,6 @@ import './App.css'
 
 export default () => (
   <div>
-     <Navigation />
     <Main />
   </div>
 )
