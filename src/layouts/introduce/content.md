@@ -41,6 +41,45 @@ We also will provide the ability to check the current return via smart contract 
 
 ### USING METAMASK
 
+### STEP 1 - Access to web dApp
+
+Using your browser , copy and paste this URL into your browser https://bigbomio.github.io/hodl/#/join 
+
+![dApp home page](images/metamask/01.png)
+
+Please make sure that your browser has Metamask installed (https://metamask.io), and is conecting to **"Main Ethereum Network"** . It won't work if you connect to any other network than Mainnet. If you already logged out, you need to login into Metamask account also.  
+
+![Metamask Login](images/metamask/03.png)
+
+After Login, click to **"Connect Metamask"** icon.  
+
+![Click Connect Metamask](images/metamask/01.png)
+
+If you're using Metamask version from 5.0.2, and you already enabled "Privacy Mode", you will be asked to authorizes our dApp to connect to your Metamask account. Don't worry, just click **Connect**
+
+![Authorized dApp](images/metamask/02.png)
+
+### STEP 2 - Making the deposit
+
+If you successful connect to Metamask, you will see the screen with your connected wallet, your current BBO balance, and your deposited tokens into long-term program. For the first time participation, the value of **Current BBO in Holding contract** will always be **0**.  
+
+![After-connected screen](images/metamask/04.png)
+
+In order to participate into long-term incentive program, just simply put your desired BBO amount into the **Deposit BBO** box below, then click **Deposit**.  Please remember that you **MUST** choose a number that less or equal to your current BBO balance.  Your Ethereum wallet must have some Ether in order to process the transaction.  
+
+![Despoit BBO](images/metamask/08.png)
+
+You will be asked to make 2 transactions, one transaction for BBO Authorization to BBO Token Smart Contract, and another transaction for actual deposit into long-term incentive contract at `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`. Click **Confirm** on both transaction, then wait for them to be mined on Ethereum network. Please make sure that both transaction is success by checking it's status on Etherscan
+
+![Approve](images/metamask/05.png)
+
+![Deposit](images/metamask/06.png)
+
+After these transaction has been confirmed by Ethereum network, and successful, please reload the dApp at https://bigbomio.github.io/hodl/#/join. Now you will see your deposited tokens has been recorded into long-term incentive program. **CONGRATS!!!**
+
+![Deposit status](images/metamask/07.png)
+
+
 ### USING MYETHERWALLET
 
 ### STEP 1 - Authorizing BBO transfer
