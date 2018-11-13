@@ -10,7 +10,7 @@ As a Vietnam blockchain advocate, we are collaborating with BigBom to offer BBO 
 ## SMART CONTRACT
 The whole program will be control from a Ethereum smart contract. After the activation from Midas Foundation, the program will have 100% autonomy, according to the smart contract code. Midas Foundation and other parties have to rights to change any of its internal value, or changing the contract logic. The contract address is
 
-`0x239dE3a0D6ca5f21601f83327eA2174225eB7156`
+`0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`
 
 Our contract has been source code certified by etherscan.io and we expect the community to do a deep review. The program is entirely voluntary, and everything is based on the code. Participants are aware of the risks of the contract code .
 
