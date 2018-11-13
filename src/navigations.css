@@ -2,7 +2,7 @@ ul.menu {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333333;
+    background-color: #4dae4a;
     text-align: center;
 }
 
@@ -19,7 +19,7 @@ ul.menu li a {
 }
 
 ul.menu li a:hover {
-    background-color: #111111;
+    background-color: green;
 }
 
 .footer {
