@@ -10,13 +10,13 @@ As a Vietnam blockchain advocate, we are collaborating with BigBom to offer BBO 
 ## SMART CONTRACT
 The whole program will be control from a Ethereum smart contract. After the activation from Midas Foundation, the program will have 100% autonomy, according to the smart contract code. Midas Foundation and other parties have to rights to change any of its internal value, or changing the contract logic. The contract address is
 
-`0x239dE3a0D6ca5f21601f83327eA2174225eB7156`
+`0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`
 
 Our contract has been source code certified by etherscan.io and we expect the community to do a deep review. The program is entirely voluntary, and everything is based on the code. Participants are aware of the risks of the contract code .
 
 ## RULES
-1. The long-term incentive program started on **November 25, 2018 - 10:00am (UTC time)**.
-2. The program's participation will be open for 60 days, ending on **January 25, 2019 - 10:00pm (UTC time)**. Any tokens deposited after this time will be donated to the Midas Foundation.
+1. The long-term incentive program started on **November 29, 2018 - 10:00am (UTC time)**.
+2. The program's participation will be open for 60 days, ending on **January 28, 2019 - 10:00pm (UTC time)**. Any tokens deposited after this time will be donated to the Midas Foundation.
 3. Midas Foundation has already deposited 10 million BBO tokens into the smart contract as the initial reward. With the participation of more benefactors, the number of tokens will increase at any time. The Foundation may choose to deposit any BBO at any time.
 4. **All BBOs transferred to the incentive plan contract through direct transfer will be part of the award and cannot be taken back. If you do not want to contribute BBO for free, please do not directly transfer any BBO to the contract address. Bear in mind that if you really transfer the BBO directly to the incentive plan, we are not able to help you recover your tokens.** You must authorize and confirm the transfer first (instructions below). Please follow each step carefully as the Foundation will not be able to recover your tokens if any mistakes are made.
 5. Participants may not withdraw their BBO tokens for 12 months from the date of their original token deposit(s). The token withdraw period will open from the 18th month to 24th month. Participants may withdraw their tokens in partial or in full during this time. Any tokens still remaining in the program after the 24th month will be donated to the Foundation.
@@ -40,6 +40,45 @@ We also will provide the ability to check the current return via smart contract 
 ## INSTRUCTIONS TO DEPOSIT BBO
 
 ### USING METAMASK
+
+### STEP 1 - Access to web dApp
+
+Using your browser , copy and paste this URL into your browser https://bigbomio.github.io/hodl/#/join 
+
+![dApp home page](images/metamask/01.png)
+
+Please make sure that your browser has Metamask installed (https://metamask.io), and is conecting to **"Main Ethereum Network"** . It won't work if you connect to any other network than Mainnet. If you already logged out, you need to login into Metamask account also.  
+
+![Metamask Login](images/metamask/03.png)
+
+After Login, click to **"Connect Metamask"** icon.  
+
+![Click Connect Metamask](images/metamask/01.png)
+
+If you're using Metamask version from 5.0.2, and you already enabled "Privacy Mode", you will be asked to authorizes our dApp to connect to your Metamask account. Don't worry, just click **Connect**
+
+![Authorized dApp](images/metamask/02.png)
+
+### STEP 2 - Making the deposit
+
+If you successful connect to Metamask, you will see the screen with your connected wallet, your current BBO balance, and your deposited tokens into long-term program. For the first time participation, the value of **Current BBO in Holding contract** will always be **0**.  
+
+![After-connected screen](images/metamask/04.png)
+
+In order to participate into long-term incentive program, just simply put your desired BBO amount into the **Deposit BBO** box below, then click **Deposit**.  Please remember that you **MUST** choose a number that less or equal to your current BBO balance.  Your Ethereum wallet must have some Ether in order to process the transaction.  
+
+![Despoit BBO](images/metamask/08.png)
+
+You will be asked to make 2 transactions, one transaction for BBO Authorization to BBO Token Smart Contract, and another transaction for actual deposit into long-term incentive contract at `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`. Click **Confirm** on both transaction, then wait for them to be mined on Ethereum network. Please make sure that both transaction is success by checking it's status on Etherscan
+
+![Approve](images/metamask/05.png)
+
+![Deposit](images/metamask/06.png)
+
+After these transaction has been confirmed by Ethereum network, and successful, please reload the dApp at https://bigbomio.github.io/hodl/#/join. Now you will see your deposited tokens has been recorded into long-term incentive program. **CONGRATS!!!**
+
+![Deposit status](images/metamask/07.png)
+
 
 ### USING MYETHERWALLET
 
