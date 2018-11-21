@@ -20,8 +20,8 @@ class Join extends Component {
             depositStopTime: 0,
             depositStartTime: 0
         };
-        this.web3Local = new Web3("https://ropsten.infura.io/e7cf61fe75a64b2f91459362e0e5beb8");
-        this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0xdc93c6c43dad3280737be00dec8f301a2cbfd25c');
+        this.web3Local = new Web3("https://mainnet.infura.io/e7cf61fe75a64b2f91459362e0e5beb8");
+        this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0x5d5673d4e75e4f1a0a51ebb7bdf97491fc745224');
         this.getDepositime();
     }
     getDepositime(){
