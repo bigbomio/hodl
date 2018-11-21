@@ -17,8 +17,9 @@ class Join extends Component {
 
         this.state = {
             currentAvailableReward: 0,
-            depositStopTime: 0,
-            depositStartTime: 0
+            depositStopTime: 1543485600,
+            depositStartTime: 0,
+            stage: 'Not started'
         };
         this.web3Local = new Web3("https://mainnet.infura.io/e7cf61fe75a64b2f91459362e0e5beb8");
         this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0x5d5673d4e75e4f1a0a51ebb7bdf97491fc745224');
@@ -36,6 +37,26 @@ class Join extends Component {
                 that.setState({depositStopTime:depositStopTime})
             }
         })
+    }
+    displayStage(){
+        if(this.state.depositStartTime > 0){
+            if(this.state.stage!= 'Deposit'){
+                this.state.stage = 'Deposit'
+            }
+            return(
+                <div> <strong>Deposit</strong> is ending in ({this.displayDateUTC(this.state.depositStopTime)}):   <span>
+                    <Countdown date={this.state.depositStopTime*1000} />
+                   </span>
+                </div>
+                )
+        }else{
+            return(
+            <div> <strong>Program</strong> will start soon ({this.displayDateUTC(1543485600)}):  <span>
+                  <Countdown date={1543485600000} />
+               </span>
+            </div>
+            )
+        }
     }
     getCurrentReward(){
         let that=this;
@@ -61,12 +82,9 @@ class Join extends Component {
              <div className="pure-g">
              <div className="pure-u-1-1 header">
              <h1 className = "newstype">Midas Foundation Long-term HODLING program <br/> for BBO Hodlers</h1>
-            <h2>Program Stage: <strong className="text-green">Deposit</strong></h2>
+            <h2>Program Stage: <strong className="text-green">{this.state.stage}</strong></h2>
             <h2>Current Available Rewards:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale='2' value={this.state.currentAvailableReward} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
-            <div> <strong>Deposit</strong> is ending in ({this.displayDateUTC(this.state.depositStopTime)}):   <span>
-                <Countdown date={this.state.depositStopTime*1000} />
-               </span>
-            </div>
+            {this.displayStage()}
             
             <h3 className="newstype">JOIN WITH</h3>
             <div className = 'list-btn'>
