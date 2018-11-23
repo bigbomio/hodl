@@ -52,7 +52,7 @@ class Join extends Component {
         }else{
             return(
             <div> <strong>Program</strong> will start soon ({this.displayDateUTC(1543485600)}):  <span>
-                  <Countdown date={1543485600000} />
+                  <Countdown date={this.displayDateUTC(1543485600)} />
                </span>
             </div>
             )
