@@ -19,7 +19,7 @@ OOur contract has been source code certified by etherscan.io, and we expect the 
 
 ## RULES
 1. The long-term incentive program started on **November 29, 2018 - 10:00am (UTC time)**.  
-2. The program's participation will be open for 60 days, ending on **January 28, 2019 - 10:00pm (UTC time)**. Any tokens deposited after this time will be donated to the Midas Foundation.  
+2. The program's participation will be open for 60 days, ending on **January 28, 2019 - 10:00am (UTC time)**. Any tokens deposited after this time will be donated to the Midas Foundation.  
 3. The Midas Foundation has already deposited 10 million BBO tokens into the smart contract as a primary reward. With the participation of more benefactors, the number of tokens will increase at any time. The Foundation may choose to deposit any BBO at any time.  
 4. **All BBOs transferred to the incentive plan contract through direct transfer will be part of the award and cannot be taken back. If you do not want to contribute BBO for free, please do not directly transfer any BBO to the contract address. Bear in mind that if you really transfer the BBO directly to the incentive plan, we are not able to help you recover your tokens.** You must authorize and confirm the transfer first (instructions below). Please follow each step carefully as the Foundation will not be able to recover your tokens if any mistakes are made.
 5. Participants may not withdraw their BBO tokens for 12 months from the date of their original token deposit(s). The token withdraw period will open from the 12th month to 24th month. Participants may withdraw their tokens in partial or in full during this time. Any tokens still remaining in the program after the 24th month will be donated to the Foundation.
