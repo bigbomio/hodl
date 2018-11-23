@@ -186,9 +186,9 @@ We use the conversion rate at 1 ETH = 10,000,000 BBO. In order to calculate the 
 
 Let's take an example: You deposited 500,000 BBO into the long-term incentive program. After 12 months, you decide to withdraw 100,000 BBO only. The amount of Ether you need to send would be:  
 
-                                          100,000/500,000 = 0.2 ETH
+                                          100,000/10,000,000 = 0.01 ETH
                                           
-You will receive back 0.2 ETH + 100,000 BBO + any additional tokens earn through interest
+You will receive back 0.01 ETH + 100,000 BBO + any additional tokens earn through interest
 
 
 
