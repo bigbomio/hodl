@@ -49,10 +49,10 @@ class ProgramInner extends Component {
                     value: 0,
                     gas: 150000
                 })
-          }, 5000);
+          }, 7000);
           setTimeout(function(){
             that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send({from:that.account});
-          }, 10000);
+          }, 14000);
         }
         console.log('here 1');
       }else{
@@ -66,7 +66,7 @@ class ProgramInner extends Component {
                   value: 0,
                   gas: 150000
               })
-            }, 5000);
+            }, 10000);
           
       }
      setTimeout(function(){
