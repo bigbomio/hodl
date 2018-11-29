@@ -45,7 +45,7 @@ class Join extends Component {
             }
             return(
                 <div> <strong>Deposit</strong> is ending in ({this.displayDateUTC(this.state.depositStopTime)}):   <span>
-                    <Countdown date={this.state.depositStopTime*1000} />
+                    <Countdown date={this.displayDateUTC(this.state.depositStopTime)} />
                    </span>
                 </div>
                 )
