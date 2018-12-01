@@ -11,11 +11,11 @@ The ultimate objective of Midas Foundation is to innovate in such a way that it 
 As a Vietnam advocate of blockchain technology, we are collaborating with BigBom to offer the “BBO Long-term Incentive” Program for the same above objective.
 
 ## SMART CONTRACT
-The whole program will be controlled by an Ethereum smart contract. After the activation from Midas Foundation, the program will have a 100% autonomy, thanks to the smart contract code. Midas Foundation and other parties have  the rights to change any of its internal values or the contract logic. The contract address is  
+The whole program will be controlled by an Ethereum smart contract. After the activation from Midas Foundation, the program will have a 100% autonomy, thanks to the smart contract code. Midas Foundation and other parties do not have any rights to change any of its internal values or the contract logic. The contract address is  
 
 `0x5d5673d4e75E4F1A0A51eBb7bdF97491Fc745224`
 
-OOur contract has been source code certified by etherscan.io, and we expect the community to do an in-depth review. The program is entirely voluntary, and everything follows the code. Participants are aware of the risks of the contract code.
+Our contract has been source code certified by etherscan.io, and we expect the community to do an in-depth review. The program is entirely voluntary, and everything follows the code. Participants are aware of the risks of the contract code.
 
 ## RULES
 1. The long-term incentive program started on **November 29, 2018 - 10:00am (UTC time)**.  
