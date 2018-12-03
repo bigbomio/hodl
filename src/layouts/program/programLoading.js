@@ -57,7 +57,7 @@ class ProgramLoading extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1">
             <h1>⚙️</h1>
-            <p>Loading...</p>
+            <p>Please use Ethereum Mainnet to access this page. Thank you!</p>
           </div>
         </div>
       </main>

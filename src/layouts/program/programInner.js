@@ -28,41 +28,50 @@ class ProgramInner extends Component {
         return;
       this.setState({'submiting':true});
       var allowance = await this.contracts['BBOTest'].methods.allowance(this.props.accounts[0], this.contracts.BBOHoldingContract.address).call();
-      //var allowance = this.props.contracts['BBOTest']['allowance'][this.bboAllowanceKey].value;
       console.log(allowance);
       var that = this;
       if(allowance > 0){
         if(this.context.drizzle.web3.utils.fromWei(allowance, 'ether') == this.state['bboAmount']){
-         return this.contracts.BBOHoldingContract.methods['depositBBO'].cacheSend(...[]);
+         return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                      to: that.contracts.BBOHoldingContract.address,
+                      value: 0,
+                      gas: 150000
+                  });
+        
         }else{
           // todo set allowance to 0
           
-          let otx = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, 0).send();
+          this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, 0).send({from:that.account});
           setTimeout(function(){
-            that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send();
-            setTimeout(function(){
-                that.setState({'submiting':false});
-                  return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
-                      to: that.contracts.BBOHoldingContract.address,
-                      value: 0
-                  })
-            }, 5000);
-          }, 5000);
+              that.setState({'submiting':false});
+                return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
+                    to: that.contracts.BBOHoldingContract.address,
+                    value: 0,
+                    gas: 150000
+                })
+          }, 7000);
+          setTimeout(function(){
+            that.contracts.BBOTest.methods.approve(that.contracts.BBOHoldingContract.address,  that.context.drizzle.web3.utils.toWei(that.state['bboAmount'], 'ether')).send({from:that.account});
+          }, 14000);
         }
         console.log('here 1');
       }else{
         // do approve
         
-          let otx2 = this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send()
+          this.contracts.BBOTest.methods.approve(this.contracts.BBOHoldingContract.address, this.context.drizzle.web3.utils.toWei(this.state['bboAmount'], 'ether')).send({from:that.account})
           setTimeout(function(){
             that.setState({'submiting':false});
               return that.context.drizzle.web3.eth.sendTransaction({from:that.props.accounts[0],
                   to: that.contracts.BBOHoldingContract.address,
-                  value: 0
+                  value: 0,
+                  gas: 150000
               })
-            }, 5000);
+            }, 10000);
           
       }
+     setTimeout(function(){
+        that.setState({'submiting':false});
+       }, 5000)
     }else{
       alert('BBO Amount must be greater 0');
     }
@@ -88,7 +97,7 @@ class ProgramInner extends Component {
       }
       if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
         bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
-        bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance,'ether');
+        bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
       }
     }
     
@@ -105,9 +114,9 @@ class ProgramInner extends Component {
           
         
           <div className="container-fix-600">
-            <p><strong>Your Address:</strong> {`${this.props.accounts[0]}`}</p>
-            <p><strong>BBO Balance</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale='2' value={bboBalance} thousandSeparator={true} prefix={''} /></span></p>
-            <p><strong>Current BBO in Holding contract</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale='2' value={bboHoldBalance} thousandSeparator={true} prefix={''} /></span></p>
+            <p className='addr'><strong>Your Address:</strong> {`${this.props.accounts[0]}`}</p>
+            <p><strong>BBO Balance</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={bboBalance} thousandSeparator={true} prefix={''} /></span></p>
+            <p><strong>Current BBO in Holding contract</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={bboHoldBalance} thousandSeparator={true} prefix={''} /></span></p>
           
              <h3 className = "newstype">Deposit BBO</h3>
             <p>

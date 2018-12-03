@@ -17,14 +17,14 @@ contract BBOHoldingContract {
 
     // 18 months after deposit, user can withdrawal all or part of his/her BBO with bonus.
     // The bonus is this contract's initial BBO balance.
-    uint public constant WITHDRAWAL_DELAY           = 540 days; // = 1 year and 6 months
+    uint public constant WITHDRAWAL_DELAY           = 360 days; // = 1 year 
 
     // Send 0.001ETH per 10000 BBO partial withdrawal, or 0 for a once-for-all withdrawal.
     // All ETH will be returned.
     uint public constant WITHDRAWAL_SCALE           = 1E7; // 1ETH for withdrawal of 10,000,000 BBO.
 
     // Ower can drain all remaining BBO after 3 years.
-    uint public constant DRAIN_DELAY                = 1080 days; // = 3 years.
+    uint public constant DRAIN_DELAY                = 720 days; // = 2 years.
     
     address public bboTokenAddress  = 0x0;
     address public owner            = 0x0;
@@ -113,7 +113,12 @@ contract BBOHoldingContract {
     function bboBalance() public constant returns (uint) {
         return ERC20(bboTokenAddress).balanceOf(address(this));
     }
-
+    function holdBalance() public constant returns (uint) {
+        return records[msg.sender].bboAmount;
+    }
+    function lastDeposit() public constant returns (uint) {
+        return records[msg.sender].timestamp;
+    }
     /// @dev Deposit BBO.
     function depositBBO() payable {
         require(depositStartTime > 0);
@@ -125,18 +130,16 @@ contract BBOHoldingContract {
             .balanceOf(msg.sender)
             .min256(bboToken.allowance(msg.sender, address(this)));
 
-        require(bboAmount > 0);
+        if(bboAmount > 0){
+            require(bboToken.transferFrom(msg.sender, address(this), bboAmount));
+            Record storage record = records[msg.sender];
+            record.bboAmount = record.bboAmount.add(bboAmount);
+            record.timestamp = now;
+            records[msg.sender] = record;
 
-        Record storage record = records[msg.sender];
-        record.bboAmount = record.bboAmount.add(bboAmount);
-        record.timestamp = now;
-        records[msg.sender] = record;
-
-        bboDeposited = bboDeposited.add(bboAmount);
-
-        emit Deposit(depositId++, msg.sender, bboAmount);
-        
-        require(bboToken.transferFrom(msg.sender, address(this), bboAmount));
+            bboDeposited = bboDeposited.add(bboAmount);
+            emit Deposit(depositId++, msg.sender, bboAmount);
+        }
     }
 
     /// @dev Withdrawal BBO.
