@@ -22,7 +22,5 @@ const drizzleOptions = {
   
 
 }
-console.log(drizzleOptions.contracts);
-
 
 export default drizzleOptions
