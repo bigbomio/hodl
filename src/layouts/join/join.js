@@ -30,6 +30,7 @@ class Join extends Component {
         this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0x5d5673d4e75e4f1a0a51ebb7bdf97491fc745224');
         this.getDepositime();
         this.getCurrentReward();
+        this.displayStage();
     }
 
     getDepositime(){
