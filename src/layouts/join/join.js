@@ -35,14 +35,10 @@ class Join extends Component {
     getDepositime(){
         let that = this;
         that.BBOHoldingInstance.methods.depositStartTime().call().then(function(depositStartTime){
-            if(that.state.depositStartTime!=depositStartTime){
-                that.setState({depositStartTime:depositStartTime})
-            }
+            that.setState({depositStartTime:depositStartTime})
         })
         that.BBOHoldingInstance.methods.depositStopTime().call().then(function(depositStopTime){
-            if(that.state.depositStopTime!=depositStopTime){
-                that.setState({depositStopTime:depositStopTime})
-            }
+            that.setState({depositStopTime:depositStopTime})
         })
     }
     displayStage(){

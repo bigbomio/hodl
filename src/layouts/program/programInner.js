@@ -90,13 +90,17 @@ class ProgramInner extends Component {
     }else{
       if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
         bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
-        bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance,'ether');
-        this.setState({bboBalance : bboBalance});  
+        if(bboBalance) {
+          bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance.toString(),'ether');
+          this.setState({bboBalance : bboBalance});  
+        }
       }
       if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
         bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
-        bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
-        this.setState({bboHoldBalance : bboHoldBalance});
+        if(bboHoldBalance) {
+          bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
+          this.setState({bboHoldBalance : bboHoldBalance});
+        }
       }
     }
     
