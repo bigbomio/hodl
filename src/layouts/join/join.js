@@ -44,7 +44,7 @@ class Join extends Component {
     displayStage(){
         if(this.state.depositStartTime > 0){
             if(this.state.stage!= 'Deposit'){
-                this.state.stage = 'Deposit'
+                this.setState({stage : 'Deposit'});
             }
             return(
                 <div> <strong>Deposit</strong> is ending in ({this.displayDateUTC(this.state.depositStopTime)}):   <span>
@@ -102,7 +102,7 @@ class Join extends Component {
             </Link>
             <span className="or-text">OR</span>
             <BBButton content="Using MyEtherWallet" variant="green" className = 'button-text mew'  
-                onClick={ ()=> {let newWindow = window && window.open(this.linkPostMyEtherWallet);}}/>
+                onClick={ ()=> {window.open(this.linkPostMyEtherWallet);}}/>
         
     
         </div>

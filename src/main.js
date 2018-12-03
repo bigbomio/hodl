@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import ProgramContainer from './layouts/program/programContainer'
 import Join from            './layouts/join/join'

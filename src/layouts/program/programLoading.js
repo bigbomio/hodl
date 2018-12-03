@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 
 class ProgramLoading extends Component {
   render() {
+    console.log(this.props)
     if (this.props.web3.status === 'failed')
     {
       if (this.props.errorComp) {
@@ -51,7 +52,6 @@ class ProgramLoading extends Component {
     if (this.props.loadingComp) {
       return this.props.loadingComp
     }
-
     return(
       <main className="container loading-screen">
         <div className="pure-g">
@@ -77,7 +77,7 @@ const mapStateToProps = state => {
   return {
     accounts: state.accounts,
     drizzleStatus: state.drizzleStatus,
-    web3: state.web3
+    web3: state.web3,
   }
 }
 

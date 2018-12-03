@@ -151,7 +151,9 @@ ProgramInner.contextTypes = {
 const mapStateToProps = state => {
   return {
     accounts: state.accounts,
-    contracts: state.contracts
+    contracts: state.contracts,
+    drizzleStatus: state.drizzleStatus,
+    web3: state.web3,
   }
 }
 

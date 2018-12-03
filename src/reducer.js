@@ -6,5 +6,4 @@ const reducer = combineReducers({
   routing: routerReducer,
   ...drizzleReducers
 })
-
 export default reducer

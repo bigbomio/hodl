@@ -1,5 +1,4 @@
 import React from 'react'
-import Navigation from './navigations'
 import Main from './main'
 
 // Styles
