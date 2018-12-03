@@ -8,14 +8,17 @@ class ProgramInner extends Component {
   constructor(props, context) {
     super(props)
     this.contracts = context.drizzle.contracts
-    var initialState = {bboAmount:0, submiting:false};
     this.account = this.props.accounts[0];
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.account])
     this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall({from:this.account})
-    this.state = initialState;
-    
+    this.state = {
+      bboHoldBalance : 0,
+      bboBalance : 0,
+      bboAmount:0, 
+      'submiting':false 
+    };
     
   }
 
@@ -77,13 +80,7 @@ class ProgramInner extends Component {
     }
   }
 
-
-  handleInputChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-
-  }
-
-  render() {
+  componentDidMount() {
     var bboBalance = 0;
     var bboHoldBalance = 0;
     if(this.account != this.props.accounts[0]){
@@ -94,13 +91,24 @@ class ProgramInner extends Component {
       if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
         bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
         bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance,'ether');
+        this.setState({bboBalance : bboBalance});  
       }
       if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
         bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
         bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
+        this.setState({bboHoldBalance : bboHoldBalance});
       }
     }
     
+  }
+
+  handleInputChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+
+  }
+
+  render() {
+   
     
     return (
       <main className="container">
@@ -115,8 +123,8 @@ class ProgramInner extends Component {
         
           <div className="container-fix-600">
             <p className='addr'><strong>Your Address:</strong> {`${this.props.accounts[0]}`}</p>
-            <p><strong>BBO Balance</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={bboBalance} thousandSeparator={true} prefix={''} /></span></p>
-            <p><strong>Current BBO in Holding contract</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={bboHoldBalance} thousandSeparator={true} prefix={''} /></span></p>
+            <p><strong>BBO Balance</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={this.state.bboBalance} thousandSeparator={true} prefix={''} /></span></p>
+            <p><strong>Current BBO in Holding contract</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale= {2} value={this.state.bboHoldBalance} thousandSeparator={true} prefix={''} /></span></p>
           
              <h3 className = "newstype">Deposit BBO</h3>
             <p>
