@@ -1,4 +1,4 @@
-import createHashHistory from 'history/createHashHistory'
+import createHistory from 'history/createBrowserHistory'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { routerMiddleware } from 'react-router-redux'
@@ -11,7 +11,7 @@ import drizzleOptions from './drizzleOptions'
 // Redux DevTools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const history = createHashHistory()
+const history = createHistory()
 
 const routingMiddleware = routerMiddleware(history)
 const sagaMiddleware = createSagaMiddleware()
