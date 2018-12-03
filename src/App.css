@@ -172,7 +172,7 @@ pre {
 .button-text.metamask{
   background: url(../public/metamask-logo.png) no-repeat;
   background-size: contain;
-  color: #979a9c;
+  color: rgb(190, 70, 14);
   padding: 10px;
   border: 1px solid;
   background-origin: content-box;

@@ -22,21 +22,23 @@ class Join extends Component {
             currentDeposited: 0,
             stage: 'Deposit'
         };
+       
+    }
+
+    componentDidMount() {
         this.web3Local = new Web3("https://mainnet.infura.io/e7cf61fe75a64b2f91459362e0e5beb8");
         this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0x5d5673d4e75e4f1a0a51ebb7bdf97491fc745224');
         this.getDepositime();
+        this.getCurrentReward();
     }
+
     getDepositime(){
         let that = this;
         that.BBOHoldingInstance.methods.depositStartTime().call().then(function(depositStartTime){
-            if(that.state.depositStartTime!=depositStartTime){
-                that.setState({depositStartTime:depositStartTime})
-            }
+            that.setState({depositStartTime:depositStartTime})
         })
         that.BBOHoldingInstance.methods.depositStopTime().call().then(function(depositStopTime){
-            if(that.state.depositStopTime!=depositStopTime){
-                that.setState({depositStopTime:depositStopTime})
-            }
+            that.setState({depositStopTime:depositStopTime})
         })
     }
     displayStage(){
@@ -81,15 +83,15 @@ class Join extends Component {
     }
 
     render() {
-        this.getCurrentReward();
+       
         return (
             <main className="container">
              <div className="pure-g">
              <div className="pure-u-1-1 header">
              <h1 className = "newstype">Midas Foundation Long-term HODLING program <br/> for BBO Hodlers</h1>
             <h2>Program Stage: <strong className="text-green">{this.state.stage}</strong></h2>
-            <h2>Current Available Rewards:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale="2" value={(this.state.currentAvailableReward)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
-            <h2>Current Deposited:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale="2" value={(this.state.currentDeposited)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
+            <h2>Current Available Rewards:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentAvailableReward)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
+            <h2>Current Deposited:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentDeposited)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
             {this.displayStage()}
             
             <h3 className="newstype">JOIN WITH</h3>
