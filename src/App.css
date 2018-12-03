@@ -61,6 +61,7 @@ pre {
   margin-right: auto;
   margin-left: auto;
 }
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -225,4 +226,15 @@ pre {
   width: 600px;
   margin: 0 auto;
   position: relative;
+}
+@media (max-width: 767px) {
+  .container {
+        width: calc(100% - 10px)!important;
+    }
+  span.or-text {
+        display: block!important;
+    }
+    .container-fix-600 {
+      width: 100%;
+  }
 }

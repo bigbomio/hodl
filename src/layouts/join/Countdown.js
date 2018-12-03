@@ -123,7 +123,7 @@ Countdown.propTypes = {
 };
 
 Countdown.defaultProps = {
-  date: new Date()
+  date: new Date().toUTCString()
 };
 
 export default Countdown;

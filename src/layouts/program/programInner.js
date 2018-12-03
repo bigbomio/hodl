@@ -114,7 +114,7 @@ class ProgramInner extends Component {
           
         
           <div className="container-fix-600">
-            <p><strong>Your Address:</strong> {`${this.props.accounts[0]}`}</p>
+            <p class='addr'><strong>Your Address:</strong> {`${this.props.accounts[0]}`}</p>
             <p><strong>BBO Balance</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale='2' value={bboBalance} thousandSeparator={true} prefix={''} /></span></p>
             <p><strong>Current BBO in Holding contract</strong>: <span className="color-green"><CurrencyFormat displayType='text' decimalScale='2' value={bboHoldBalance} thousandSeparator={true} prefix={''} /></span></p>
           

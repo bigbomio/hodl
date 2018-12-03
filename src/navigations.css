@@ -62,3 +62,32 @@ ul.menu-sub li a.telegram {
     padding: 0px 16px;
     text-decoration: none;
 }
+
+@media (max-width: 767px) {
+  ul.menu-sub {
+      margin-top: 10px;
+  }
+  img.img-logo {
+    left: auto;
+    width: 120px;
+    top: 10px;
+    position: absolute;
+    position: relative;
+    clear: both;
+  }
+  img.img-tele {
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+  .container {
+        width: calc(100% - 10px);
+    }
+        span.or-text {
+        display: block;
+    }
+    p.addr {
+    word-break: break-all;
+}
+}
