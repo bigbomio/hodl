@@ -1,5 +1,5 @@
 import BBOHoldingContract from './../build/contracts/BBOHoldingContract.json'
-import TutorialToken from './../build/contracts/BBOTest.json'
+import BBOTest from './../build/contracts/BBOTest.json'
 
 
 const drizzleOptions = {
@@ -12,7 +12,7 @@ const drizzleOptions = {
   },
   contracts: [
     BBOHoldingContract,
-    TutorialToken
+    BBOTest
   ],
   events: {
   },
