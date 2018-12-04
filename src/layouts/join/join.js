@@ -30,7 +30,7 @@ class Join extends Component {
         this.BBOHoldingInstance = new this.web3Local.eth.Contract(BBOHoldingContract.abi, '0x5d5673d4e75e4f1a0a51ebb7bdf97491fc745224');
         this.getDepositime();
         this.getCurrentReward();
-        this.displayStage();
+      //  this.displayStage();
     }
 
     getDepositime(){
@@ -82,7 +82,20 @@ class Join extends Component {
     displayDateUTC(time){
         return new Date(time*1000).toUTCString();
     }
-
+    displayCountDown(time){
+        let now = new Date()/1000;
+        if(now < time){
+            return(
+            <div> 
+                <strong>Deposit</strong> is ending in ({this.displayDateUTC(this.state.depositStopTime)}):   <span>
+                    <Countdown date={this.displayDateUTC(this.state.depositStopTime)} />
+                   </span>
+            </div>
+                )
+        }else{
+            return''
+        }
+    }
     render() {
        
         return (
@@ -93,7 +106,7 @@ class Join extends Component {
             <h2>Program Stage: <strong className="text-green">{this.state.stage}</strong></h2>
             <h2>Current Available Rewards:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentAvailableReward)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
             <h2>Current Deposited:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentDeposited)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
-            {this.displayStage()}
+            {this.displayCountDown(this.state.depositStopTime)}
             
             <h3 className="newstype">JOIN WITH</h3>
             <div className = 'list-btn'>
