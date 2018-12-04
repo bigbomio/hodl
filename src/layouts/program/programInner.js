@@ -80,7 +80,7 @@ class ProgramInner extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     var bboBalance = 0;
     var bboHoldBalance = 0;
     if(this.account != this.props.accounts[0]){
@@ -88,20 +88,39 @@ class ProgramInner extends Component {
       this.bboBalanceKey = this.contracts['BBOTest'].methods['balanceOf'].cacheCall(...[this.account])
       this.bboHoldKey = this.contracts.BBOHoldingContract.methods['holdBalance'].cacheCall({from:this.account})
     }else{
-      if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
+      
+      //Get BBO balance of user
+      let valueKeyBBOBalance = Object.keys(this.props.contracts.BBOTest['balanceOf'])
+      console.log('valueKeyBBOBalance',valueKeyBBOBalance);
+      if(valueKeyBBOBalance.length <= 0) {
+    
+         bboBalance = await  this.contracts['BBOTest'].methods.balanceOf(this.account).call();
+         
+      } else if(this.bboBalanceKey in this.props.contracts['BBOTest']['balanceOf']) {
+
         bboBalance = this.props.contracts['BBOTest']['balanceOf'][this.bboBalanceKey].value;
-        if(bboBalance) {
-          bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance.toString(),'ether');
-          this.setState({bboBalance : bboBalance});  
-        }
+
       }
-      if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
-        bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value;
-        if(bboHoldBalance) {
-          bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
-          this.setState({bboHoldBalance : bboHoldBalance});
-        }
+      bboBalance = this.context.drizzle.web3.utils.fromWei(bboBalance.toString(),'ether');
+      this.setState({bboBalance : bboBalance}); 
+      console.log('bboBalance',bboBalance);  
+
+      let valueKeyBBOHold= Object.keys(this.props.contracts.BBOHoldingContract['holdBalance'])
+      console.log('valueKeyBBOHold',valueKeyBBOHold);
+      if(valueKeyBBOHold.length <= 0) {
+       
+        bboHoldBalance = await this.contracts.BBOHoldingContract.methods.holdBalance().call();
+
+      } else if(this.bboHoldKey in this.props.contracts.BBOHoldingContract['holdBalance']) {
+
+        bboHoldBalance = this.props.contracts.BBOHoldingContract['holdBalance'][this.bboHoldKey].value; 
+
       }
+      bboHoldBalance = this.context.drizzle.web3.utils.fromWei(bboHoldBalance.toString(),'ether');
+
+      this.setState({bboHoldBalance : bboHoldBalance});
+      console.log('bboHoldBalance',bboHoldBalance);  
+
     }
     
   }
