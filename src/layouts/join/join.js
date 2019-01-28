@@ -103,23 +103,10 @@ class Join extends Component {
              <div className="pure-g">
              <div className="pure-u-1-1 header">
              <h1 className = "newstype">Midas Foundation Long-term HODLING program <br/> for BBO Hodlers</h1>
-            <h2>Program Stage: <strong className="text-green">{this.state.stage}</strong></h2>
+            <h2>Program Stage: <strong className="text-green">Locking</strong></h2>
             <h2>Current Available Rewards:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentAvailableReward)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
             <h2>Current Deposited:<strong className="text-green"> <CurrencyFormat displayType='text' decimalScale= {2} value={(this.state.currentDeposited)} thousandSeparator={true} prefix={''} /> BBO</strong></h2>
-            {this.displayCountDown(this.state.depositStopTime)}
             
-            <h3 className="newstype">JOIN WITH</h3>
-            <div className = 'list-btn'>
-        
-            <Link to="/metamask">
-            <BBButton content="Connect Metamask" className = 'button-text metamask' variant="green" />
-            </Link>
-            <span className="or-text">OR</span>
-            <BBButton content="Using MyEtherWallet" variant="green" className = 'button-text mew'  
-                onClick={ ()=> {window.open(this.linkPostMyEtherWallet);}}/>
-        
-    
-        </div>
             </div>
             </div>
             </main>
